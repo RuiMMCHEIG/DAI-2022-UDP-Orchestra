@@ -12,4 +12,4 @@ WORKDIR /home/node/app
 
 COPY src/ /home/node/app
 
-ENTRYPOINT ["node", "/home/node/app/index.js"]
+ENTRYPOINT ["node", "index.js"]

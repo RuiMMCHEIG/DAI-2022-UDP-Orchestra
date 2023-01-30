@@ -7,7 +7,7 @@ const dgram = require('dgram');
 
 const TCP_PORT = 2205;
 
-// Active musicians
+// Maps of active musicians
 let musicians = new Map();
 
 // Let's create a datagram socket. We will use it to listen for datagrams published in the
@@ -41,7 +41,7 @@ s.on('message', (msg, source) => {
     }
   });
 
-  // Insert a new Musician if not in the list
+  // Insert a new Musician if he's not in the list
   if (!found) {
     let instrument;
     for ([key, val] of Object.entries(protocol.instruments))

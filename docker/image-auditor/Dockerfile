@@ -1,8 +1,15 @@
-FROM node:17-alpine
+FROM node:latest
 
-COPY src/* /opt/app/
+EXPOSE 2205/tcp
 
-WORKDIR /opt/app/
-RUN npm install
+EXPOSE 2023/udp
 
-ENTRYPOINT ["node", "/opt/app/index.js"]
+EXPOSE 3000
+
+RUN mkdir /home/node/app
+
+WORKDIR /home/node/app
+
+COPY src/ /home/node/app
+
+ENTRYPOINT ["node", "/home/node/app/index.js"]
